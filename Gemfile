@@ -19,6 +19,7 @@ group :default do
   gem 'pluggaloid', '>= 1.2.0', '< 1.3'
   #gem 'ruby-hmac', '~> 0.4.0'
   gem 'typed-array', '>= 0.1.2', '< 0.2'
+  gem 'dotenv'
 end
 
 group :test do

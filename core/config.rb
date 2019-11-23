@@ -6,6 +6,8 @@
 # アプリケーションごとの設定たち
 # mikutterの設定
 
+require 'dotenv/load'
+
 module CHIConfig
   # このアプリケーションの名前。
   NAME = "mikutter"
@@ -14,8 +16,8 @@ module CHIConfig
   ACRO = "mikutter"
 
   # 下の２行は馬鹿にしか見えない
-  TWITTER_CONSUMER_KEY = "AmDS1hCCXWstbss5624kVw"
-  TWITTER_CONSUMER_SECRET = "KOPOooopg9Scu7gJUBHBWjwkXz9xgPJxnhnhO55VQ"
+  TWITTER_CONSUMER_KEY = ENV['TWITTER_CONSUMER_KEY']
+  TWITTER_CONSUMER_SECRET = ENV['TWITTER_CONSUMER_SECRET']
   TWITTER_AUTHENTICATE_REVISION = 1
 
   # pidファイル
