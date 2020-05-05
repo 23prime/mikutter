@@ -1,3 +1,24 @@
-cd ~/src/mikutter/
-bundle exec ruby mikutter.rb
+#!/bin/sh -eu
 
+DIR=~/src/mikutter/
+
+cd $DIR
+bundle exec ruby mikutter.rb &
+
+while true; do
+    RSS=$(ps aux | grep ruby | grep mikutter | awk '{print $6}')
+    PID=$(ps aux | grep ruby | grep mikutter | awk '{print $2}')
+
+    if [ -z $RSS ]; then
+        exit 0
+    elif [ $RSS -gt 2000000 ]; then
+        cd $DIR
+        bundle exec ruby mikutter.rb &
+        sleep 10
+        kill $PID
+    else
+        :
+    fi
+
+    sleep 60
+done
